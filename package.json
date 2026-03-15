@@ -1,0 +1,8 @@
+{
+  "name": "gamescope-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for the GameScope major project.",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
