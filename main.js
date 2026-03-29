@@ -412,7 +412,7 @@ function priceTrackerSectionMarkup(game) {
         <div>
           <p class="eyebrow">Price tracker</p>
           <h2>Price comparison</h2>
-          <p class="panel-text">PlayWise checks the current legal store prices for Steam, Epic Games, and the official site when those prices are available from the live provider.</p>
+          <p class="panel-text">TidyBit checks the current legal store prices for Steam, Epic Games, and the official site when those prices are available from the live provider.</p>
         </div>
       </div>
       <div id="priceTrackerBox" class="price-tracker-shell" data-game-slug="${escapeHtml(game.slug)}">
@@ -1046,13 +1046,13 @@ function setupCompatibilityForm(game) {
 }
 
 function getStoredComments(slug) {
-  const localKey = `playwise-comments-${slug}`;
+  const localKey = `tidybit-comments-${slug}`;
   const saved = localStorage.getItem(localKey);
   return saved ? JSON.parse(saved) : [];
 }
 
 function saveComment(slug, comment) {
-  const localKey = `playwise-comments-${slug}`;
+  const localKey = `tidybit-comments-${slug}`;
   const comments = getStoredComments(slug);
   comments.unshift(comment);
   localStorage.setItem(localKey, JSON.stringify(comments.slice(0, 8)));

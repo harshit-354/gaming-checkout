@@ -1096,7 +1096,7 @@ window.GAME_LIBRARY = [
     "heroTag": "A gorgeous survival horror sequel with steep GPU demands, especially once you push image quality or ray tracing.",
     "image": "https://img.youtube.com/vi/uLpt9JCVZ-c/hqdefault.jpg",
     "banner": "https://img.youtube.com/vi/uLpt9JCVZ-c/maxresdefault.jpg",
-    "description": "Alan Wake 2 blends detective horror, dense atmosphere, and cinematic storytelling. It is one of the most visually demanding games on this PlayWise list.",
+    "description": "Alan Wake 2 blends detective horror, dense atmosphere, and cinematic storytelling. It is one of the most visually demanding games on this TidyBit list.",
     "story": "Saga Anderson investigates ritualistic murders in Bright Falls while Alan Wake fights to escape the nightmare reality of the Dark Place.",
     "gallery": [
       "Dual protagonists",

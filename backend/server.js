@@ -76,7 +76,7 @@ if (process.env.NODE_ENV !== 'production') {
   connectDatabase().finally(() => {
     startPriceRefreshLoop()
     app.listen(PORT, () => {
-      console.log(`PlayWise server running at http://localhost:${PORT}`)
+      console.log(`TidyBit server running at http://localhost:${PORT}`)
     })
   })
 } else {

@@ -1,7 +1,7 @@
 {
-  "name": "playwise-backend",
+  "name": "tidybit-backend",
   "version": "1.0.0",
-  "description": "Backend for the PlayWise major project.",
+  "description": "Backend for the TidyBit major project.",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {

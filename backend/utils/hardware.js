@@ -170,7 +170,7 @@ async function estimatePerformance(game, rawHardware) {
       recommendedPreset: 'Unavailable',
       fps: { low: '—', medium: '—', high: '—' },
       expectedFps: 'No native support expected',
-      warning: 'This MacBook/macOS setup is not supported for this game in the current PlayWise catalog.',
+      warning: 'This MacBook/macOS setup is not supported for this game in the current TidyBit catalog.',
       source: hardware.source || 'Laptop preset',
       platform,
       details: ['Use a Windows PC or another supported platform for this title.']
