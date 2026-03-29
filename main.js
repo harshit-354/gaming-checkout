@@ -1,6 +1,6 @@
 const API_BASE = window.location.hostname === 'localhost'
     ? 'http://localhost:4000/api'
-    : 'https://playwise-cda1.onrender.com/api';
+    : 'https://your-backend-url.onrender.com/api';
 const GAME_LIBRARY = window.GAME_LIBRARY || [];
 const LAPTOP_LIBRARY = window.LAPTOP_LIBRARY || [];
 

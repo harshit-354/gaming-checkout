@@ -21,7 +21,9 @@ const app = express()
 const PORT = process.env.PORT || 4000
 const FRONTEND_ROOT = path.resolve(__dirname, '..')
 
+let isConnected = false;
 async function connectDatabase() {
+  if (isConnected) return;
   try {
     if (!process.env.MONGO_URI) {
       console.log('MONGO_URI not found, so running in demo mode.')
@@ -29,6 +31,7 @@ async function connectDatabase() {
     }
 
     await mongoose.connect(process.env.MONGO_URI)
+    isConnected = true;
     console.log('MongoDB connected successfully.')
 
     const totalGames = await Game.countDocuments()
@@ -43,6 +46,14 @@ async function connectDatabase() {
     console.error('Database connection failed. App will keep running in demo mode.', err.message)
   }
 }
+
+// Vercel serverless middleware to ensure DB is connected on API routes
+app.use(async (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    await connectDatabase();
+  }
+  next();
+});
 
 app.use(helmet({ contentSecurityPolicy: false }))
 app.use(cors({ origin: true, credentials: true }))
@@ -61,9 +72,17 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(FRONTEND_ROOT, 'index.html'))
 })
 
-connectDatabase().finally(() => {
-  startPriceRefreshLoop()
-  app.listen(PORT, () => {
-    console.log(`PlayWise server running at http://localhost:${PORT}`)
+if (process.env.NODE_ENV !== 'production') {
+  connectDatabase().finally(() => {
+    startPriceRefreshLoop()
+    app.listen(PORT, () => {
+      console.log(`PlayWise server running at http://localhost:${PORT}`)
+    })
   })
-})
+} else {
+  // In production (Vercel), just run the price refresh loop once initially if possible,
+  // but note that serverless functions are ephemeral.
+  startPriceRefreshLoop()
+}
+
+module.exports = app;
